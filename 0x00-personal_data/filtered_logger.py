@@ -7,6 +7,8 @@ These are Personal Data projects
 from typing import List
 import re
 import logging
+import mysql.connector
+from os import environ
 
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 
@@ -82,3 +84,22 @@ def get_logger() -> logging.Logger:
                  "phone",
                  "ssn",
                  "password"))))
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """
+    connecting to a database holberton and reads a table users
+    """
+    username = environ.get('PERSONAL_DATA_DB_USERNAME', 'root')
+    password = environ.get('PERSONAL_DATA_DB_PASSWORD', '')
+    host = environ.get('PERSONAL_DATA_DB_HOST', 'localhost')
+    db_name = environ.get('PERSONAL_DATA_DB_NAME')
+
+    mysql_connection = mysql.connector.connection.MySQLConnection(
+        user=username,
+        password=password,
+        host=host,
+        database=db_name
+    )
+
+    return mysql_connection
