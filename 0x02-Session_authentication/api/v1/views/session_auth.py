@@ -28,7 +28,7 @@ def session_login() -> str:
 
     users = User.search({'email': user_email, 'password': user_password})
 
-    if user is None:
+    if users is None:
         return jsonify({"error": "no user found for this email"}), 404
 
     for user in users:
