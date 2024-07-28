@@ -22,4 +22,4 @@ class SessionAuth(Auth):
         session_Id = str(uuid.uuid4())
         self.__class__.user_id_by_session_id[session_Id] = user_id
 
-        return user_id
+        return session_Id
