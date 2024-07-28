@@ -26,7 +26,7 @@ def session_login() -> str:
     if user_password is None:
         return jsonify({"error": "password missing"}), 400
 
-    users = User.search({'email': user_email, 'password': user_password})
+    users = User.search({'email': user_email })
 
     if users is None:
         return jsonify({"error": "no user found for this email"}), 404
