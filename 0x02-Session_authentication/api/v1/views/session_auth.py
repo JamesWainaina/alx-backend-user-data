@@ -42,7 +42,7 @@ def session_login() -> str:
             return response
     return jsonify({"error": "wrong password"}), 401
 
-@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/api/v1/views/session_auth.py', methods=['DELETE'], strict_slashes=False)
 def session_logout() -> str:
     """
     Route for deleting a sesssion
