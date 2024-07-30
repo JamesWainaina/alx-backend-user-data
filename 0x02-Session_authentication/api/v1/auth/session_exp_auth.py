@@ -39,12 +39,12 @@ class SessonExpAuth(SessionAuth):
 
     def user_id_for_session(self, session_id=None):
         """
-        function for creating session_id
+        function for creating  a session duration
         """
 
         if not session_id:
             return None
-        if not self.user_id_by_session_id[session_id]:
+        if not self.user_id_by_session_id.get(session_id):
             return None
         session_dict = self.user_id_by_session_id.get(session_id)
 
