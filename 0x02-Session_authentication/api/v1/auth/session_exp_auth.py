@@ -10,7 +10,7 @@ from os import getenv
 from datetime import datetime, timedelta
 
 
-class SessonExpAuth(SessionAuth):
+class SessionExpAuth(SessionAuth):
     """
     class session exp auth
     """
