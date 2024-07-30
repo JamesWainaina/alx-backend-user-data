@@ -42,9 +42,8 @@ class SessionExpAuth(SessionAuth):
         function for creating  a session duration
         """
 
-        if not session_id:
-            return None
-        if not self.user_id_by_session_id.get(session_id):
+        if (not session_id or
+                not self.user_id_by_session_id.get(session_id)):
             return None
         session_dict = self.user_id_by_session_id.get(session_id)
 
